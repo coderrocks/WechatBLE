@@ -1,14 +1,27 @@
 package cn.zeico.air.wechat;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.ws.rs.core.Application;
+
+import cn.zeico.air.wechat.view.WeChat;
+
 
 /**
- * Hello world!
+ * 主程序入口
  *
  */
 public class App extends Application
 {
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+	Set<Object> objectSet = new HashSet<Object>();
+	
+	public App() {
+		objectSet.add(new WeChat());
+	}
+	
+	@Override  
+    public Set<Object> getSingletons() {
+        return objectSet;  
     }
 }
